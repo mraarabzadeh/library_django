@@ -26,10 +26,12 @@ media
 
 # Distribution / packaging
 .Python
+manage.py
+venv/
 build/
 develop-eggs/
 dist/
-downloads/
+downloads/s
 eggs/
 .eggs/
 lib/

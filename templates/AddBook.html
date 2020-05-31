@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    صفحه ایجاد کتاب
+{% endblock %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button>ثبت</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    صفحه اصلی
+{% endblock %}
+
+{% block body %}
+    <form method="get">
+
+            {% for item in form %}
+
+            <table border="red">
+                <tr>
+                    <td>
+                    {{ item.title }}
+                    </td>
+                    <td>
+                        {{ item.number }}
+                    </td>
+                    <td>
+                         {{ item.translator }}
+                    </td>
+                    <td>
+                        {{ item.writer }}
+                    </td>
+                    <td>
+                        {{ item.number_of_reserved }}
+                    </td>
+                </tr>
+            </table>
+            {% endfor %}
+            <form method="post">
+                <button> درخواست کتاب</button>
+            </form>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if form.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ form.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                <span class="current">
+                    Page {{ form.number }} of {{ form.paginator.num_pages }}.
+                </span>
+
+                    {% if form.has_next %}
+                        <a href="?page={{ form.next_page_number }}">next</a>
+                        <a href="?page={{ form.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+    </form>
+{% endblock %}
